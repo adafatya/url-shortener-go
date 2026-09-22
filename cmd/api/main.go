@@ -24,7 +24,7 @@ func main() {
 		Addr:    ":" + port,
 		Handler: urlHandler.Routes(),
 	}
-
+	log.Printf("starting app")
 	log.Printf("url shortener listening on %s", server.Addr)
 	if err := server.ListenAndServe(); err != nil && err != http.ErrServerClosed {
 		log.Fatal(err)

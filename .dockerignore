@@ -1,0 +1,12 @@
+.git
+.gitignore
+Dockerfile
+*.md
+
+.env
+.env.*
+*.log
+
+tmp/
+dist/
+bin/
