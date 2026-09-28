@@ -24,9 +24,14 @@ func NewURLHandler(urlService *usecase.URLService) *URLHandler {
 
 func (h *URLHandler) Routes() http.Handler {
 	mux := http.NewServeMux()
+	mux.HandleFunc("/api/v1/health", h.healthCheck)
 	mux.HandleFunc("/api/v1/urls", h.shorten)
 	mux.HandleFunc("/", h.resolve)
 	return mux
+}
+
+func (h *URLHandler) healthCheck(w http.ResponseWriter, _ *http.Request) {
+	h.writeJSON(w, http.StatusOK, "OK")
 }
 
 func (h *URLHandler) shorten(w http.ResponseWriter, r *http.Request) {
