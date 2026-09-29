@@ -14,4 +14,4 @@ services:
     image: postgres:16-alpine
     environment:
       - POSTGRES_PASSWORD=${DB_PASS}
-      - POSTGRES_DB=#{DB_NAME}
+      - POSTGRES_DB=${DB_NAME}
