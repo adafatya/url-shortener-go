@@ -34,7 +34,7 @@ func main() {
 	urlService := usecase.NewURLService(urlRepository)
 	urlHandler := handler.NewURLHandler(urlService)
 
-	port := "8080"
+	port := helper.EnvReader("APP_PORT", "8080")
 	server := &http.Server{
 		Addr:    ":" + port,
 		Handler: urlHandler.Routes(),
